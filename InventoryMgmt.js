@@ -37,3 +37,14 @@ let inventory = [
 
 ];
 
+
+// Task 2: Create a Function to Display Product Details
+
+function displayProductDetails (item) {
+   let stock = item.quantity <= item.lowStockLevel ? "Low Stock":"In Stock"
+     return `${item.name} is ${stock}`
+     
+}
+
+console.log(displayProductDetails(inventory[1]))
+// Desired Ouput: WirelessCharger is Low Stock
