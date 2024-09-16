@@ -41,10 +41,13 @@ let inventory = [
 // Task 2: Create a Function to Display Product Details
 
 function displayProductDetails (item) {
-   let check = item.quantity <= item.lowStockLevel ? "Low Stock":"In Stock"
-     return `${item.name} is ${check}`
+   let check = item.quantity <= item.lowStockLevel ? "Low in Stock":"In Stock"
+     return`Name: ${item.name},
+     Price: $${item.price}, 
+     Quantity: ${item.quantity}, 
+     Stock Level: ${item.name} is ${check}`
      
-}
+};
 
 console.log(displayProductDetails(inventory[1]))
 // Desired Ouput: WirelessCharger is Low Stock
@@ -52,19 +55,37 @@ console.log(displayProductDetails(inventory[1]))
 // Task 3: Create a Function to Update Product Stock After Sales
 
 function updateStock (item, unitsSold) {
-    let afterSales = item.quantity - unitsSold
-
-if (afterSales <= 0)  {
-    return `${item.name} is out of stock`;
-} else if ((0 <= afterSales) && (afterSales <= item.lowStockLevel)) {
-    return `${item.name} is low in stock`;
-} else {
-    return `${item.name} is in stock`;
-}
-
-}
+    item.quantity -= unitsSold
+    
+    if (item.quantity <= 0)  { 
+        return `${item.name} is out of stock`;
+    } else if ((0 <= item.quantity) && (item.quantity <= item.lowStockLevel)) {
+        return `${item.name} is low in stock`;
+    } else {
+        return `${item.name} is in stock`;
+    }
+    
+};
 
 console.log (updateStock(inventory[2], 15))
 // Desired Output: mechKeyboard is out of stock
 
+// Task 4: Create a Function to Check Low Stock Products
+
+inventory.forEach (checkLowStock); // Iterating over the array using forEach
+
+function checkLowStock (item) {
+let check = item.quantity <= item.lowStockLevel ? console.log(item.name): ""; 
+
+return check 
+
+};
+
+// Desired Output:
+// WirelessCharger
+// mechKeyboard
+// wallLights
+
+// NOTE: at this point, several modifications were also made to Task 3's code to 
+// ensure that it was correct.
 
