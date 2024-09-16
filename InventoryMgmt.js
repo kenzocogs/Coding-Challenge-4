@@ -89,3 +89,14 @@ return check
 // NOTE: at this point, several modifications were also made to Task 3's code to 
 // ensure that it was correct.
 
+// Task 5: Create a Function to Calculate Total Inventory Value
+
+function calculateInventoryValue (inventory) {
+    return inventory.reduce ((totalValue, item) => {
+        return totalValue + (item.price * item.quantity)
+    }, 0);
+    
+}
+
+console.log (`The total inventory's value is $${calculateInventoryValue(inventory)}.`)
+// Desired Output: The total inventory's value is $3785
