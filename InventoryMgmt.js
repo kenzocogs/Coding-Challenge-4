@@ -70,6 +70,10 @@ function updateStock (item, unitsSold) {
 console.log (updateStock(inventory[2], 15))
 // Desired Output: mechKeyboard is out of stock
 
+console.log (updateStock(inventory[0], 2))
+// Desired Output: smartPens is in stock
+// ^ Multiple logs are tested here to verify that the if statement is working correctly. 
+
 // Task 4: Create a Function to Check Low Stock Products
 
 inventory.forEach (checkLowStock); // Iterating over the array using forEach
@@ -100,3 +104,26 @@ function calculateInventoryValue (inventory) {
 
 console.log (`The total inventory's value is $${calculateInventoryValue(inventory)}.`)
 // Desired Output: The total inventory's value is $3785
+
+// Task 6: Create a Function to Process a Sale
+
+function processSale (name, unitsSold) {
+
+    let item = inventory.find (item => item.name === name);
+
+    return item ? updateStock(item, unitsSold) : 'ERROR: PRODUCT NOT FOUND IN INVENTORY';
+
+}
+
+console.log (processSale('graphicsCard', 4))
+// Desired Output: graphicsCard is low in stock
+
+console.log (processSale('GamingMouse', 1))
+// Desired Output: ERROR: PRODUCT NOT FOUND IN INVENTORY
+// ^ This output verifies the if statement's functionality, as GamingMouse is not a listed product
+// in the inventory array.
+
+
+
+
+
